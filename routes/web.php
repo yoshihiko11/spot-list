@@ -12,6 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('posts/master');
 });
 Route::get('/posts', 'PostController@index');
