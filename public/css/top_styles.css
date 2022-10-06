@@ -1379,7 +1379,7 @@ progress {
 
   .col-lg-4 {
     flex: 0 0 auto;
-    width: 33.33333333%;
+    width: auto;
   }
 
   .col-lg-5 {
@@ -11285,4 +11285,13 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.Spot-details {
+  font-weight: bold;
+}
+
+.Spot-body {
+  font-size: 1.25rem;
+  font-weight: 300;
 }
