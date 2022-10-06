@@ -11,7 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('posts/master');
-});
-Route::get('/posts', 'PostController@index');
+Route::get('/', 'PostController@index');
+Route::get('/posts/create', 'PostController@create')->name('posts.create');
+Route::get('/posts/{post}/edit', 'PostController@edit');
+Route::put('/posts/{post}', 'PostController@update');
+Route::delete('/posts/{post}', 'PostController@delete');
+Route::get('/posts/{post}', 'PostController@show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/posts', 'PostController@store')->name('posts.store');
+
+// いいね実装 
+Route::get('/posts/{post}/check', 'LikeController@check')->name('like.check');
+Route::resource('posts.likes', 'LikeController', [
+ 'only' => ['store'],
+]);

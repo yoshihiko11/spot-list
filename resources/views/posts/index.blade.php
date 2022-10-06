@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Laravel</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Blog Name</h1>
-        <div class='posts'>
-            <dev class='post'>
-                <h2 class='title'>タイトル</h2>
-                <p class='body'>This is a sample body.</p>
-            </dev>
+@extends('layouts.app')
+
+@section('content')
+    <main>
+       
+
+        <div class="container px-4 px-lg-5 mt-5">
+            @include('top_parts.sidebar')
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('posts.create') }}">スポット新規登録</a></div>
+            </div>
+            @include("section.section01")
         </div>
-    </body>
-</html>
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
+    </main>
+@endsection
