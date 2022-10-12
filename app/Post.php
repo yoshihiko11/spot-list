@@ -14,6 +14,7 @@ class Post extends Model
         'price',
         'sales',
         'hpurl',
+        'user_id',
         'image',
         ];
     
@@ -25,6 +26,7 @@ class Post extends Model
     
     public function isLiked($user_id)
     {
+        //すでにいいねしているかどうかを判断するのに使用する
         return $this->likes()->where('user_id', $user_id)->exists();
     }
     

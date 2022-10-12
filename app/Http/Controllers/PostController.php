@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -34,6 +36,7 @@ class PostController extends Controller
         
         $input = $request['post'];
         $input['image'] = $imagePath;
+        $input['user_id'] = Auth::id();
         $post->fill($input)->save();
         
         return redirect('/posts/' . $post->id);

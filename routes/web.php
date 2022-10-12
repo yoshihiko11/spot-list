@@ -12,10 +12,12 @@
 */
 
 Route::get('/', 'PostController@index');
-Route::get('/posts/create', 'PostController@create')->name('posts.create');
-Route::get('/posts/{post}/edit', 'PostController@edit');
-Route::put('/posts/{post}', 'PostController@update');
-Route::delete('/posts/{post}', 'PostController@delete');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/posts/create', 'PostController@create')->name('posts.create');
+    Route::get('/posts/{post}/edit', 'PostController@edit');
+    Route::put('/posts/{post}', 'PostController@update');
+    Route::delete('/posts/{post}', 'PostController@delete');
+});
 Route::get('/posts/{post}', 'PostController@show');
 Auth::routes();
 
@@ -27,3 +29,5 @@ Route::get('/posts/{post}/check', 'LikeController@check')->name('like.check');
 Route::resource('posts.likes', 'LikeController', [
  'only' => ['store'],
 ]);
+
+Route::get('/posts/{post}/count', 'LikeController@count')->name('like.count');
