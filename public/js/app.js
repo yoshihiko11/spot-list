@@ -1929,11 +1929,80 @@ __webpack_require__.r(__webpack_exports__);
   props: ['post_id'],
   data: function data() {
     return {
-      status: false
+      status: false,
+      count: ""
     };
   },
   created: function created() {
     this.like_check();
+    this.counts();
+  },
+  methods: {
+    like_check: function like_check() {
+      var _this = this;
+
+      var id = this.post_id;
+      var array = ["/posts/", id, "/check"];
+      var path = array.join('');
+      axios.get(path).then(function (res) {
+        if (res.data.like) {
+          _this.status = true;
+        } else {
+          _this.status = false;
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    like: function like() {
+      var _this2 = this;
+
+      var id = this.post_id;
+      var array = ["/posts/", id, "/likes"];
+      var path = array.join('');
+      axios.post(path).then(function (res) {
+        _this2.like_check();
+
+        _this2.counts();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    counts: function counts() {
+      var _this3 = this;
+
+      var path = "/posts/" + this.post_id + "/count";
+      axios.get(path).then(function (res) {
+        _this3.count = res.data.count;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LikebuttonComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LikebuttonComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['post_id'],
+  data: function data() {
+    return {
+      status: false,
+      count: ""
+    };
+  },
+  created: function created() {
+    this.like_check();
+    this.counts();
   },
   methods: {
     like_check: function like_check() {
@@ -1963,6 +2032,19 @@ __webpack_require__.r(__webpack_exports__);
       console.log(path);
       axios.post(path).then(function (res) {
         _this2.like_check();
+
+        _this2.counts();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    counts: function counts() {
+      var _this3 = this;
+
+      var path = "/posts/" + this.post_id + "/count";
+      axios.get(path).then(function (res) {
+        console.log(res.data.count);
+        _this3.count = res.data.count;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2024,9 +2106,105 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {};
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm.status === false ? _c("button", {
+    staticClass: "btn like-button",
+    on: {
+      click: function click($event) {
+        return _vm.like();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-thin fa-thumbs-up",
+    staticStyle: {
+      "font-size": "30px"
+    }
+  }, [_c("span", {
+    staticStyle: {
+      "font-size": "15px"
+    }
+  }, [_vm._v(_vm._s(_vm.count))])])]) : _c("button", {
+    staticClass: "btn liked-button",
+    on: {
+      click: function click($event) {
+        return _vm.like();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-solid fa-thumbs-up",
+    staticStyle: {
+      "font-size": "30px",
+      color: "#0099FF"
+    }
+  }, [_c("span", {
+    staticStyle: {
+      "font-size": "15px"
+    }
+  }, [_vm._v(_vm._s(_vm.count))])])])]);
+};
 
 var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LikebuttonComponent.vue?vue&type=template&id=64b2e159&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LikebuttonComponent.vue?vue&type=template&id=64b2e159& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm.status === false ? _c("button", {
+    staticClass: "btn like-button",
+    on: {
+      click: function click($event) {
+        return _vm.like();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-thin fa-thumbs-up",
+    staticStyle: {
+      "font-size": "30px"
+    }
+  }, [_c("span", {
+    staticStyle: {
+      "font-size": "15px"
+    }
+  }, [_vm._v(_vm._s(_vm.count))])])]) : _c("button", {
+    staticClass: "btn liked-button",
+    on: {
+      click: function click($event) {
+        return _vm.like();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-solid fa-thumbs-up",
+    staticStyle: {
+      "font-size": "30px",
+      color: "#0099FF"
+    }
+  }, [_c("span", {
+    staticStyle: {
+      "font-size": "15px"
+    }
+  }, [_vm._v(_vm._s(_vm.count))])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
 
 
 /***/ }),
@@ -49612,6 +49790,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('like-component', __webpack_require__(/*! ./components/LikeComponent.vue */ "./resources/js/components/LikeComponent.vue")["default"]);
+Vue.component('likebutton-component', __webpack_require__(/*! ./components/LikebuttonComponent.vue */ "./resources/js/components/LikebuttonComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49802,6 +49981,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_LikeComponent_vue_vue_type_template_id_8499806a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_LikeComponent_vue_vue_type_template_id_8499806a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/LikebuttonComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/LikebuttonComponent.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LikebuttonComponent_vue_vue_type_template_id_64b2e159___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LikebuttonComponent.vue?vue&type=template&id=64b2e159& */ "./resources/js/components/LikebuttonComponent.vue?vue&type=template&id=64b2e159&");
+/* harmony import */ var _LikebuttonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LikebuttonComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LikebuttonComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LikebuttonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LikebuttonComponent_vue_vue_type_template_id_64b2e159___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LikebuttonComponent_vue_vue_type_template_id_64b2e159___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LikebuttonComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/LikebuttonComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/LikebuttonComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LikebuttonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./LikebuttonComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LikebuttonComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LikebuttonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/LikebuttonComponent.vue?vue&type=template&id=64b2e159&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/LikebuttonComponent.vue?vue&type=template&id=64b2e159& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_LikebuttonComponent_vue_vue_type_template_id_64b2e159___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./LikebuttonComponent.vue?vue&type=template&id=64b2e159& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LikebuttonComponent.vue?vue&type=template&id=64b2e159&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_LikebuttonComponent_vue_vue_type_template_id_64b2e159___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_LikebuttonComponent_vue_vue_type_template_id_64b2e159___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -28,6 +28,7 @@ export default {
             const array = ["/posts/",id,"/check"];
             const path = array.join('')
             axios.get(path).then(res => {
+                console.log(res.data.like);
                 if(res.data.like) {
                     this.status = true
                 } else {
@@ -41,6 +42,7 @@ export default {
             const id = this.post_id
             const array = ["/posts/",id,"/likes"];
             const path = array.join('')
+            console.log(path);
             axios.post(path).then(res => {
                 this.like_check()
                 this.counts()
@@ -51,6 +53,7 @@ export default {
         counts() {
             const path = "/posts/" + this.post_id + "/count";
             axios.get(path).then(res => {
+                console.log(res.data.count);
                 this.count = res.data.count;
             }).catch(function(err) {
                 console.log(err);

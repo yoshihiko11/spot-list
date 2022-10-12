@@ -36,5 +36,14 @@ class LikeController extends Controller
 
         $like = $post->isLiked(Auth::id());
         return response()->json(['like' => $like], 200);
+        /*下のデータを一緒に送りたい
+        $count = $post->likes->count();
+        return count_response()->json(['count' => $count]);*/
    }
+   
+   public function count(Post $post)
+   {
+        $count = $post->likes->count();
+        return response()->json(['count' => $count], 200);
+   }    
 }
