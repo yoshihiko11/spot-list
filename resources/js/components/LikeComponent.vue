@@ -1,17 +1,24 @@
 <template>
     <div>
-        <button v-if="status === false" class='btn like-button' @click="like()" >
-      <i class="fa fa-thin fa-thumbs-up" style="font-size: 30px;"><span style="font-size: 15px;">{{count}}</span></i>
-    </button>
-    <button v-else class='btn liked-button' @click="like()" >
-      <i class="fa fa-solid fa-thumbs-up" style="font-size: 30px; color:#0099FF;"><span style="font-size: 15px;">{{count}}</span></i>
-    </button>
+        <div v-if="show_flg === true">
+            <button v-if="status === false" class='btn like-button' @click="like()" >
+              <i class="fa fa-thin fa-thumbs-up" style="font-size: 30px;"><span style="font-size: 15px;">{{count}}</span></i>
+            </button>
+            <button v-else class='btn liked-button' @click="like()" >
+              <i class="fa fa-solid fa-thumbs-up" style="font-size: 30px; color:#0099FF;"><span style="font-size: 15px;">{{count}}</span></i>
+            </button>
+        </div>
+        <div v-else>
+            <button class='btn like-button' @click="like()" >
+              <i class="fa fa-thin fa-thumbs-up" style="font-size: 30px;"><span style="font-size: 15px;">{{count}}</span></i>
+            </button>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['post_id'],      
+    props: ['post_id', 'show_flg'],
     data() {
         return {
             status: false,

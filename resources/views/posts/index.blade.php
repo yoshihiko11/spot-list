@@ -2,8 +2,6 @@
 
 @section('content')
     <main>
-       
-
         <div class="container px-4 px-lg-5 mt-5">
             @include('top_parts.sidebar')
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -26,7 +24,7 @@
                                             <h5 class="fw-bolder">{{ $post->name }}</h5>
                                             <!-- Product price-->
                                             <p class='body'>{{ $post->access }}</p>
-                                            <like-component :post_id = "{{ $post->id }}"></like-component>
+                                            <like-component :post_id = "{{ $post->id }}" :show_flg = "false"></like-component>
                                         </div>
                                     </div>
                                     <!-- Product actions-->

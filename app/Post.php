@@ -24,6 +24,7 @@ class Post extends Model
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
+   
     public function isLiked($user_id)
     {
         //すでにいいねしているかどうかを判断するのに使用する
@@ -39,4 +40,10 @@ class Post extends Model
    {
        return $this->likes()->where('user_id', $user_id)->get();
    }
+   
+   public function getRecomendedSpots(int $limit_count = 4)
+    {
+        //updated_atで降順に並べたあと、limitで件数制限をかける
+        return $this->likes()->selectRaw('count(*) as count')->groupBy('post_id')->orderBy('count','desc')->limit($limit_count)->get();
+    }
 }

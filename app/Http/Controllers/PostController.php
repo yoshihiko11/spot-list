@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Like;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -19,7 +21,19 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
-        return view('posts/show')->with(['post' => $post]);
+        $likesCount = Like::
+            select('post_id')
+          ->selectRaw('count(*) as counts')
+          ->from('likes as a')
+          ->groupBy('post_id')
+          ->orderBy('counts', 'desc')
+          ->limit(4);
+          
+        $likedPosts = DB::table('posts')
+            ->joinSub($likesCount, 'likes_count', function($join) {
+                $join->on('posts.id', '=', 'likes_count.post_id');
+            })->get();
+        return view('posts/show')->with(['post' => $post, 'likedPosts' => $likedPosts]);
     }
     public function create()
     {
