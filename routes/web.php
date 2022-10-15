@@ -11,23 +11,22 @@
 |
 */
 
-Route::get('/', 'PostController@index');
+
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', 'PostController@index');
+    Route::get('/posts/search', 'SearchController@searchPost');
     Route::get('/posts/create', 'PostController@create')->name('posts.create');
     Route::get('/posts/{post}/edit', 'PostController@edit');
+    Route::get('/posts/{post}', 'PostController@show');
+    Route::post('/posts', 'PostController@store')->name('posts.store');
     Route::put('/posts/{post}', 'PostController@update');
     Route::delete('/posts/{post}', 'PostController@delete');
+    // いいね実装 
+    Route::get('/posts/{post}/check', 'LikeController@check')->name('like.check');
+    Route::get('/posts/{post}/count', 'LikeController@count')->name('like.count');
+    Route::resource('posts.likes', 'LikeController', [
+     'only' => ['store'],
+    ]);
 });
-Route::get('/posts/{post}', 'PostController@show');
+
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/posts', 'PostController@store')->name('posts.store');
-
-// いいね実装 
-Route::get('/posts/{post}/check', 'LikeController@check')->name('like.check');
-Route::resource('posts.likes', 'LikeController', [
- 'only' => ['store'],
-]);
-
-Route::get('/posts/{post}/count', 'LikeController@count')->name('like.count');

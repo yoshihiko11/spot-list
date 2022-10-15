@@ -1926,7 +1926,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['post_id'],
+  props: ['post_id', 'show_flg'],
   data: function data() {
     return {
       status: false,
@@ -2110,7 +2110,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm.status === false ? _c("button", {
+  return _c("div", [_vm.show_flg === true ? _c("div", [_vm.status === false ? _c("button", {
     staticClass: "btn like-button",
     on: {
       click: function click($event) {
@@ -2143,7 +2143,23 @@ var render = function render() {
     staticStyle: {
       "font-size": "15px"
     }
-  }, [_vm._v(_vm._s(_vm.count))])])])]);
+  }, [_vm._v(_vm._s(_vm.count))])])])]) : _c("div", [_c("button", {
+    staticClass: "btn like-button",
+    on: {
+      click: function click($event) {
+        return _vm.like();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-thin fa-thumbs-up",
+    staticStyle: {
+      "font-size": "30px"
+    }
+  }, [_c("span", {
+    staticStyle: {
+      "font-size": "15px"
+    }
+  }, [_vm._v(_vm._s(_vm.count))])])])])]);
 };
 
 var staticRenderFns = [];
