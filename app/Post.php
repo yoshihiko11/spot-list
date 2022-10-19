@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Post extends Model
 {
@@ -40,10 +41,15 @@ class Post extends Model
    {
        return $this->likes()->where('user_id', $user_id)->get();
    }
-   
-   public function getRecomendedSpots(int $limit_count = 4)
+
+    public function search($word)
     {
-        //updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->likes()->selectRaw('count(*) as count')->groupBy('post_id')->orderBy('count','desc')->limit($limit_count)->get();
+        $posts = DB::table('posts')
+            ->from('posts')
+            ->where('name',  'like', "%$word%")
+            ->orWhere('body', 'like', "%$word%")
+            ->paginate(1);
+            
+        return $posts;
     }
 }
