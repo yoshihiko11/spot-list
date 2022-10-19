@@ -3,7 +3,16 @@
 @section('content')
     <main>
         <div class="container px-4 px-lg-5 mt-5">
-            @include('top_parts.sidebar')
+            <form method="GET" action="{{ route('posts.search') }}">
+                <input type="search" placeholder="ユーザー名を入力" name="search" value="@if (isset($search)) {{ $search }} @endif"><div>
+                    <button type="submit">検索</button>
+                    <button>
+                        <a href="{{ route('posts.search') }}" class="text-white">
+                            クリア
+                        </a>
+                    </button>
+                </div>
+            </form>
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('posts.create') }}">スポット新規登録</a></div>
             </div>

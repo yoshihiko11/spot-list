@@ -14,7 +14,7 @@
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'PostController@index');
-    Route::get('/posts/search', 'SearchController@searchPost');
+    Route::get('/search', 'SearchController@searchPost')->name('posts.search');
     Route::get('/posts/create', 'PostController@create')->name('posts.create');
     Route::get('/posts/{post}/edit', 'PostController@edit');
     Route::get('/posts/{post}', 'PostController@show');
