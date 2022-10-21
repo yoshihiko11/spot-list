@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function searchPost(Post $post, Request $repuest)
+    public function searchPost(Post $post, Request $request)
     {
-        $search = $repuest['search'];
+        $search = $request['search'];
         $posts = $post->search($search);
         return view('posts/index')->with(['posts' => $posts, 'search' => $search]);
     }
