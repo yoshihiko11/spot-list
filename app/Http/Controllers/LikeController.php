@@ -13,8 +13,6 @@ class LikeController extends Controller
     {
                
         $user = Auth::user();
-
-       
             if($post->isLiked(Auth::id())) {
                 // 対象のレコードを取得して、削除する。
                 $delete_record = $post->getLike($user->id);

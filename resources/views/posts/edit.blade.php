@@ -34,10 +34,10 @@
                 <h2>観光スポットホームページURL</h2>
                 <input type="text" name="post[hpurl]" value="{{ $post->hpurl }}">
             </div>
-        <!--<div class="posts">
+        <div class="posts">
             <h2>観光スポット写真</h2>
             <input type="file" name="image" value="{{ $post->image }}">
-        </div>-->
+        </div>
         <input class="btn btn-outline-dark mt-auto" type="submit" value="保存">
         </form>
             

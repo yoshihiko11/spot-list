@@ -7,13 +7,8 @@
                 <!-- スポット検索 -->
                 <h3>スポット検索</h3>
                 <form method="GET" action="{{ route('posts.search') }}">
-                    <input type="search" placeholder="ユーザー名を入力" name="search" value="@if (isset($search)) {{ $search }} @endif"><div>
+                    <input type="search" placeholder="検索内容を入力" autocomplete="off" name="search" value="@if (isset($search)) {{ $search }} @endif"><div>
                         <button class="btn btn-outline-dark mt-auto" type="submit">検索</button>
-                        <button class="btn btn-outline-dark mt-auto">
-                            <a href="/" class="text-white">
-                                クリア
-                            </a>
-                        </button>
                     </div>
                 </form>
                 <!-- 新規スポット登録 -->
