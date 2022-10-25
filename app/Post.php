@@ -48,7 +48,7 @@ class Post extends Model
             ->from('posts')
             ->where('name',  'like', "%$word%")
             ->orWhere('body', 'like', "%$word%")
-            ->paginate(4);
+            ->paginate(2);
             
         return $posts;
     }
