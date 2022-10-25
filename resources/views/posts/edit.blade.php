@@ -8,31 +8,31 @@
             @method('PUT')
             <div class="name">
                 <h2>観光スポット名</h2>
-                    <input type="text" name="post[name]" value="{{ $post->name }}">
+                <input type="text" name="post[name]" value="{{ $post->name }}">
             </div>
             <div class="address">
                 <h2>住所</h2>
-                <input type="text" name='post[address]' value='{{ $post->address }}'>
+                <textarea name="post[address]" placeholder="住所">{{ $post->address }}</textarea>
             </div>
             <div class="access">
                 <h2>アクセス</h2>
-                <input type="text" name="post[access]" value="{{ $post->access }}">
+                <textarea name="post[access]" placeholder="アクセス">{{ $post->access }}</textarea>
             </div>
             <div class="body">
                 <h2>観光スポット説明</h2>
-                <input type="text" name="post[body]" value="{{ $post->body }}">
+                <textarea name="post[body]" placeholder="観光スポット説明">{{ $post->body }}</textarea>
             </div>
             <div class="price">
                 <h2>料金</h2>
-                <input type="text" name="post[price]" value="{{ $post->price }}">
+                <input type="text" name="post[price]" value="{{ $post->price }}">円
             </div>
             <div class="sales">
                 <h2>営業時間</h2>
-                <input type="text" name="post[sales]" value="{{ $post->sales }}">
+                <textarea name="post[sales]" placeholder="営業時間">{{ $post->sales }}</textarea>
             </div>
             <div class="hpurl">
                 <h2>観光スポットホームページURL</h2>
-                <input type="text" name="post[hpurl]" value="{{ $post->hpurl }}">
+                <textarea name="post[hpurl]" placeholder="観光スポットホームページURL">{{ $post->hpurl }}</textarea>
             </div>
         <div class="posts">
             <h2>観光スポット写真</h2>
