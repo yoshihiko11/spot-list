@@ -12,7 +12,7 @@
             </div>
             <div class="address">
                 <h2>住所</h2>
-                <input type="text" name="post[address]" value="{{ $post->address }}">
+                <input type="text" name='post[address]' value='{{ $post->address }}'>
             </div>
             <div class="access">
                 <h2>アクセス</h2>

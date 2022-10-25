@@ -31,7 +31,7 @@
                                             <!-- スポット名 -->
                                             <h5 class="fw-bolder">{{ $post->name }}</h5>
                                             <!-- スポットアクセス -->
-                                            <p class='body'>{{ $post->access }}</p>
+                                            <p class='body'>{!! nl2br(htmlspecialchars($post->access)) !!}</p>
                                             <like-component :post_id = "{{ $post->id }}" :show_flg = "false"></like-component>
                                         </div>
                                     </div>
