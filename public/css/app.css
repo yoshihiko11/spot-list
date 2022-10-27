@@ -615,7 +615,7 @@ pre code {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1600px;
+    max-width: 1800px;
     /*old-max-width: 1140px;*/
   }
 }
@@ -1403,8 +1403,8 @@ pre code {
   }
 
   .col-lg-4 {
-    flex: 0 0 33.33333333%;
-    max-width: auto;
+    flex: 0 0 60%;
+    max-width: 60%;
   }
 
   .col-lg-5 {
@@ -1423,8 +1423,11 @@ pre code {
   }
 
   .col-lg-8 {
+    flex: 0 0 78.6%;
+    max-width: auto;
+    /*元ステータス
     flex: 0 0 66.66666667%;
-    max-width: 66.66666667%;
+    max-width: 66.66666667%;*/
   }
 
   .col-lg-9 {
@@ -1579,8 +1582,8 @@ pre code {
   }
 
   .row-cols-xl-4 > * {
-    flex: 0 0 30%;
-    max-width: 100%;
+    flex: 0 0 26%;
+    max-width: 26%;
   }
 
   .row-cols-xl-5 > * {
@@ -5036,6 +5039,12 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+}
+
+.card-body-2 {
+  flex: 1 1 auto;
+  min-height: 0.1px;
+  padding: 0.5rem;
 }
 
 .card-title {
@@ -10925,5 +10934,31 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+  
+  .container {
+  font-family: arial;
+  font-size: 24px;
+  margin: 25px;
+  width: 350px;
+  height: 200px;
+  outline: dashed 1px black;
+}
+  
+  .bg_test-text {
+    border:  solid 1px;                             /* 枠線指定 */
+    display:  inline-block;                         /* インラインブロックにする */
+    padding: 10px 20px;                             /* 余白指定 */
+    background-color: rgba(255, 255, 255, 0.7);     /* 背景色指定 */
+}
+.bg_test {
+    text-align:  center;    /* 文字中央寄せ */
+    padding:  150px;        /* 余白指定 */
+    border: solid 2px;      /* 枠線指定 */
+}
+
+.bg_test {
+    background-image: url(/images/test.jpg);    /* 背景画像指定 */
+    background-size: auto;
+}
 }
 
