@@ -155,5 +155,15 @@ return [
     */
 
     'attributes' => [],
+    
+    'attributes' => [
+    'post.name' => '観光スポット名',
+    'post.address' => '住所',
+    'post.access' => 'アクセス',
+    'post.body' => '観光スポット説明',
+    'post.price' => '料金',
+    'post.sales' => '営業時間',
+    'post.hpurl' => '観光スポットホームページURL',
+],
 
 ];
