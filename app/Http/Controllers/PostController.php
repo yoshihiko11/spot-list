@@ -27,7 +27,7 @@ class PostController extends Controller
           ->from('likes as a')
           ->groupBy('post_id')
           ->orderBy('counts', 'desc')
-          ->limit(4);
+          ->limit(3);
           
         $likedPosts = DB::table('posts')
             ->joinSub($likesCount, 'likes_count', function($join) {

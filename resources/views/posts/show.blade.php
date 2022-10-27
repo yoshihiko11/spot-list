@@ -36,8 +36,8 @@
                         </div>
                         <div class="fs-5">
                             @if(isset( $post->hpurl ))
-                                <h4><span class="Spot-details">ホームページ</span></h4>
-                                <p><span>{!! nl2br(htmlspecialchars($post->hpurl)) !!}</span></p>
+                                <h4><span class="Spot-details">観光スポットホームページ</span></h4>
+                                <p><a href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}">{{ $post->name }}</a></p>
                             @else
                                 
                             @endif

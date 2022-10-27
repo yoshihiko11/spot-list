@@ -3,7 +3,7 @@
 @section('content')
     <main>
         <div class="container px-4 px-lg-5 mt-5">
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center"><div class="card-footer p-4 pt-0 border-top-0 bg-transparent"></div>
                 <!-- スポット検索 -->
                 <h3>スポット検索</h3>
                 <form method="GET" action="{{ route('posts.search') }}">
