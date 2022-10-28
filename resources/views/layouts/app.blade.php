@@ -81,7 +81,7 @@
             @yield('content')
         </main>
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">dopyright &copy; Your Website 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Have a nice trip &copy; Cheeva Tourist Attractions 2022</p></div>
         </footer>
     </div>
 </body>

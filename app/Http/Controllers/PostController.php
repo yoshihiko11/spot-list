@@ -42,7 +42,9 @@ class PostController extends Controller
     
     public function store(Post $post, PostRequest $request)
     {
-        $image = $request->file('image');
+        $image = $request->file('post.image');
+        if(!empty($image))
+        {
         // バケットの`example`フォルダへアップロードする
         $path = Storage::disk('s3')->putFile('example', $image, 'public');
         // アップロードした画像のフルパスを取得
@@ -52,6 +54,12 @@ class PostController extends Controller
         $input['image'] = $imagePath;
         $input['user_id'] = Auth::id();
         $post->fill($input)->save();
+        }
+        else{
+            $input = $request['post'];
+            $input['user_id'] = Auth::id();
+            $post->fill($input)->save();
+        }
         
         return redirect('/posts/' . $post->id);
     }
@@ -63,8 +71,26 @@ class PostController extends Controller
     
     public function update(PostRequest $request, Post $post)
     {
-        $input_post = $request['post'];
-        $post->fill($input_post)->save();
+        $image = $request->file('post.image');
+        if(!empty($image))
+        {
+            // バケットの`example`フォルダへアップロードする
+            $path = Storage::disk('s3')->putFile('example', $image, 'public');
+            // アップロードした画像のフルパスを取得
+            $imagePath = Storage::disk('s3')->url($path);
+        
+            $input = $request['post'];
+            $input['image'] = $imagePath;
+            $input['user_id'] = Auth::id();
+            $post->fill($input)->save();
+        }
+        else{
+            
+            $input = $request['post'];
+            $input['image'] = $post->image;
+            $input['user_id'] = Auth::id();
+            $post->fill($input)->save();
+        }
 
         return redirect('/posts/' . $post->id);
     }

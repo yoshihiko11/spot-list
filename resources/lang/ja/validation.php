@@ -164,6 +164,7 @@ return [
     'post.price' => '料金',
     'post.sales' => '営業時間',
     'post.hpurl' => '観光スポットホームページURL',
+    'post.image' => '観光スポット写真'
 ],
 
 ];

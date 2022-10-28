@@ -9,38 +9,40 @@
                     <div class="col-md-6">
                         <h1 class="Spot-name">{{ $post->name }}</h1>
                         <p Class="Spot-body mb-5">{!! nl2br(htmlspecialchars($post->body)) !!}</p>
-                        <h2 class="Spot-details">観光スポット詳細</h2>
-                        <div class="fs-5">
-                            <h4><span class="Spot-details">住所</span></h4>
-                            <p><span>{!! nl2br(htmlspecialchars($post->address)) !!}</span></p>
-                        </div>
-                        <div class="fs-5">
-                            <h4><span class="Spot-details">アクセス</span></h4>
-                            <p><span>{!! nl2br(htmlspecialchars($post->access)) !!}</span></p>
-                        </div>
-                        <div class="fs-5">
-                            @if(isset( $post->price ))
-                                <h4><span class="Spot-details">料金</span></h4>
-                                <p><span>{{ $post->price }}円</span></p>
-                            @else
-                                
-                            @endif
-                        </div>
-                        <div class="fs-5">
-                            @if(isset( $post->sales ))
-                                <h4><span class="Spot-details">営業時間</span></h4>
-                                <p><span>{!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
-                            @else
-                                
-                            @endif
-                        </div>
-                        <div class="fs-5">
-                            @if(isset( $post->hpurl ))
-                                <h4><span class="Spot-details">観光スポットホームページ</span></h4>
-                                <p><a href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}">{{ $post->name }}</a></p>
-                            @else
-                                
-                            @endif
+                        <div class="bg-lightgray">
+                            <div class=""><h2 class="Spot-details">観光スポット詳細</h2></div>
+                            <div class="fs-5">
+                                <h4><span class="Spot-details">住所</span></h4>
+                                <p><span>{!! nl2br(htmlspecialchars($post->address)) !!}</span></p>
+                            </div>
+                            <div class="fs-5">
+                                <h4><span class="Spot-details">アクセス</span></h4>
+                                <p><span>{!! nl2br(htmlspecialchars($post->access)) !!}</span></p>
+                            </div>
+                            <div class="fs-5">
+                                @if(isset( $post->price ))
+                                    <h4><span class="Spot-details">料金</span></h4>
+                                    <p><span>{{ $post->price }}円</span></p>
+                                @else
+                                    
+                                @endif
+                            </div>
+                            <div class="fs-5">
+                                @if(isset( $post->sales ))
+                                    <h4><span class="Spot-details">営業時間</span></h4>
+                                    <p><span>{!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
+                                @else
+                                    
+                                @endif
+                            </div>
+                            <div class="fs-5">
+                                @if(isset( $post->hpurl ))
+                                    <h4><span class="Spot-details">観光スポットホームページ</span></h4>
+                                    <p><a href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}">{{ $post->name }}</a></p>
+                                @else
+                                    
+                                @endif
+                            </div>
                         </div>
                         <like-component :post_id="{{$post->id}}" :show_flg = "true"></Like-component>
                         <div class="d-flex">

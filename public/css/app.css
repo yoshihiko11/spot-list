@@ -7066,6 +7066,10 @@ button.bg-danger:focus {
   background-color: #f8f9fa !important;
 }
 
+.bg-lightgray {
+  background-color: #dcdcdc !important;
+}
+
 a.bg-light:hover,
 a.bg-light:focus,
 button.bg-light:hover,
@@ -10936,29 +10940,29 @@ a.text-dark:focus {
   }
   
   .container {
-  font-family: arial;
-  font-size: 24px;
-  margin: 25px;
-  width: 350px;
-  height: 200px;
-  outline: dashed 1px black;
-}
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+    width: 350px;
+    height: 200px;
+    outline: dashed 1px black;
+  }
   
   .bg_test-text {
     border:  solid 1px;                             /* 枠線指定 */
     display:  inline-block;                         /* インラインブロックにする */
     padding: 10px 20px;                             /* 余白指定 */
     background-color: rgba(255, 255, 255, 0.7);     /* 背景色指定 */
-}
-.bg_test {
+  }
+  .bg_test {
     text-align:  center;    /* 文字中央寄せ */
     padding:  150px;        /* 余白指定 */
     border: solid 2px;      /* 枠線指定 */
-}
+  }
 
-.bg_test {
+  .bg_test {
     background-image: url(/images/test.jpg);    /* 背景画像指定 */
     background-size: auto;
-}
+  }
 }
 
