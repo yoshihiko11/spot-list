@@ -8,7 +8,7 @@
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ $post->image }}" alt="..." /></div>
                     <div class="col-md-6">
                         <h1 class="Spot-name">{{ $post->name }}</h1>
-                        <p Class="Spot-body mb-5">{!! nl2br(htmlspecialchars($post->body)) !!}</p>
+                        <p Class="Spot-body mb-5 h5">{!! nl2br(htmlspecialchars($post->body)) !!}</p>
                         <div class="bg-lightgray">
                             <div class=""><h2 class="Spot-details">観光スポット詳細</h2></div>
                             <hr>

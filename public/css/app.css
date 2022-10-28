@@ -10951,5 +10951,12 @@ a.text-dark:focus {
   .dashed-line hr {
     border-top: 1px dashed #ccc;
   }
+  
+  .wrap {
+    height: 300px;
+    width: 450px;
+    position: absolute;
+    transform-origin: 0% 0%;
+  }
 }
 
