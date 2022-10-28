@@ -13,33 +13,33 @@
                             <div class=""><h2 class="Spot-details">観光スポット詳細</h2></div>
                             <hr>
                             <div class="fs-5">
-                                <h4><span class="Spot-details">住所</span></h4>
-                                <p><span class="h5">　{!! nl2br(htmlspecialchars($post->address)) !!}</span></p>
+                                <span class="h4">住所</span>
+                                <p><span class="h5">{!! nl2br(htmlspecialchars($post->address)) !!}</span></p>
                             </div>
                             <div class="fs-5">
-                                <h4><span class="Spot-details">アクセス</span></h4>
-                                <p><span class="h5">　{!! nl2br(htmlspecialchars($post->access)) !!}</span></p>
+                                <span class="h4">アクセス</span>
+                                <p><span class="h5">{!! nl2br(htmlspecialchars($post->access)) !!}</span></p>
                             </div>
                             <div class="fs-5">
                                 @if(isset( $post->price ))
-                                    <h4><span class="Spot-details">料金</span></h4>
-                                    <p><span class="h5">　{{ $post->price }}円</span></p>
+                                    <span class="h4">料金</span>
+                                    <p><span class="h5">{{ $post->price }}円</span></p>
                                 @else
                                     
                                 @endif
                             </div>
                             <div class="fs-5">
                                 @if(isset( $post->sales ))
-                                    <h4><span class="Spot-details">営業時間</span></h4>
-                                    <p><span class="h5">　{!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
+                                    <span class="h4">営業時間</span>
+                                    <p><span class="h5">{!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
                                 @else
                                     
                                 @endif
                             </div>
                             <div class="fs-5">
                                 @if(isset( $post->hpurl ))
-                                    <h4><span class="Spot-details">観光スポットホームページ</span></h4>
-                                    <p><a class="h5" href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}">　{{ $post->name }}</a></p>
+                                    <span class="h4">観光スポットホームページ</span>
+                                    <p><a class="h5" href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}">{{ $post->name }}</a></p>
                                 @else
                                     
                                 @endif
