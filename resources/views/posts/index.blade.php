@@ -43,9 +43,9 @@
                                             <h5 class="fw-bolder">{{ $post->name }}</h5>
                                             <!-- スポットアクセス -->
                                             <p class='body'>{!! nl2br(htmlspecialchars($post->access)) !!}</p>
-                                            @if( $post->user_id === Auth::id())
+                                            @auth
                                                 <like-component :post_id = "{{ $post->id }}" :show_flg = "false"></like-component>
-                                            @endif    
+                                            @endauth
                                         </div>
                                     </div>
                                     <!-- スポット詳細画面移動 -->

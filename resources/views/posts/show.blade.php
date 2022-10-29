@@ -57,9 +57,9 @@
                                 @endif
                             </div>
                         </div>
-                        @if( $post->user_id === Auth::id())
+                        @auth
                             <like-component :post_id="{{$post->id}}" :show_flg = "true"></Like-component>
-                        @endif    
+                        @endauth
                         <div class="d-flex">
                             <a class="btn btn-outline-dark flex-shrink-0" type="button" href="/">一覧に戻る</a>
                             @if( $post->user_id === Auth::id())
@@ -95,9 +95,9 @@
                                         <h5 class="fw-bolder">{{ $likedPost->name }}</h5>
                                         <!-- Product price-->
                                         <p class='body'>{!! nl2br(htmlspecialchars($likedPost->access)) !!}</p>
-                                        @if( $post->user_id === Auth::id())
+                                        @auth
                                             <like-component :post_id = "{{ $likedPost->id }}" :show_flg = "false"></like-component>
-                                        @endif    
+                                        @endauth
                                     </div>
                                 </div>
                                 <!-- Product actions-->
