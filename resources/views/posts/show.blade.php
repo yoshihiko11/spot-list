@@ -5,8 +5,8 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6 show-border ">
-                        <img class="mb-5 mb-md-0 show-img" src="{{ $post->image }}" alt="..." />
+                    <div class="col-md-6">
+                        <img class="card-img-top mb-5 mb-md-0" src="{{ $post->image }}" alt="..." />
                     </div>
                     <div class="col-md-6">
                         <h1 class="Spot-name">{{ $post->name }}</h1>
@@ -81,7 +81,9 @@
                             <!-- コンテンツ内容をcardの中に内包する-->
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="{{ $likedPost->image }}" alt="..." />
+                                <div class="border">
+                                    <img class="card-img-top index-img" src="{{ $likedPost->image }}" alt="..." />
+                                </div>
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -89,9 +91,7 @@
                                         <h5 class="fw-bolder">{{ $likedPost->name }}</h5>
                                         <!-- Product price-->
                                         <p class='body'>{!! nl2br(htmlspecialchars($likedPost->access)) !!}</p>
-                                        <button class='btn liked-button'>
-                                            <i class="fa fa-solid fa-thumbs-up" style="font-size: 30px; color:#0099FF;"><span style="font-size: 15px;">{{ $likedPost->counts }}</span></i>
-                                        </button>
+                                        <like-component :post_id = "{{ $likedPost->id }}" :show_flg = "false"></like-component>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
