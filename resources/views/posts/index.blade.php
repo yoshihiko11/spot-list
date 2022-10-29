@@ -43,14 +43,20 @@
                                             <h5 class="fw-bolder">{{ $post->name }}</h5>
                                             <!-- スポットアクセス -->
                                             <p class='body'>{!! nl2br(htmlspecialchars($post->access)) !!}</p>
-                                            @auth
-                                                <like-component :post_id = "{{ $post->id }}" :show_flg = "false"></like-component>
-                                            @endauth
+                                            
                                         </div>
                                     </div>
                                     <!-- スポット詳細画面移動 -->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/posts/{{ $post->id }}">スポット詳細</a></div>
+                                        <div class="text-center">
+                                            <span>
+                                            <a class="btn btn-outline-dark mt-auto" href="/posts/{{ $post->id }}">スポット詳細</a>
+                                            @auth
+                                                <like-component :post_id = "{{ $post->id }}" :show_flg = "false"></like-component>
+                                             @endauth
+                                             </span>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

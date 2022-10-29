@@ -95,14 +95,16 @@
                                         <h5 class="fw-bolder">{{ $likedPost->name }}</h5>
                                         <!-- Product price-->
                                         <p class='body'>{!! nl2br(htmlspecialchars($likedPost->access)) !!}</p>
-                                        @auth
-                                            <like-component :post_id = "{{ $likedPost->id }}" :show_flg = "false"></like-component>
-                                        @endauth
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/posts/{{ $likedPost->id }}">スポット詳細</a></div>
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-dark mt-auto" href="/posts/{{ $likedPost->id }}">スポット詳細</a>
+                                        @auth
+                                            <like-component :post_id = "{{ $likedPost->id }}" :show_flg = "false"></like-component>
+                                        @endauth
+                                    </div>
                                 </div>
                             </div>
                         </div>
