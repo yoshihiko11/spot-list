@@ -57,12 +57,12 @@
                                 @endif
                             </div>
                         </div>
-                        @if( $post->user_id = Auth::id())
+                        @if( $post->user_id === Auth::id())
                             <like-component :post_id="{{$post->id}}" :show_flg = "true"></Like-component>
                         @endif    
                         <div class="d-flex">
                             <a class="btn btn-outline-dark flex-shrink-0" type="button" href="/">一覧に戻る</a>
-                            @if( $post->user_id = Auth::id())
+                            @if( $post->user_id === Auth::id())
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/posts/{{ $post->id }}/edit">スポット編集</a></div>
                                 <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
                                     @csrf
@@ -95,7 +95,7 @@
                                         <h5 class="fw-bolder">{{ $likedPost->name }}</h5>
                                         <!-- Product price-->
                                         <p class='body'>{!! nl2br(htmlspecialchars($likedPost->access)) !!}</p>
-                                        @if( $post->user_id = Auth::id())
+                                        @if( $post->user_id === Auth::id())
                                             <like-component :post_id = "{{ $likedPost->id }}" :show_flg = "false"></like-component>
                                         @endif    
                                     </div>
