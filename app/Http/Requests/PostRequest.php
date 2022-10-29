@@ -16,7 +16,7 @@ class PostRequest extends FormRequest
             'post.price' => 'nullable|integer|max:9999999',
             'post.sales' => 'nullable|string|max:2000',
             'post.hpurl' => 'nullable|string|max:2000',
-            'post.image' => 'nullable|image|max:100',
+            'post.image' => 'nullable|image',
         ];
     }
 }

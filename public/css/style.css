@@ -46,3 +46,10 @@
   object-fit: cover;
   position: absolute;
 }
+
+.search-btn-primary {
+  color: #fff;
+  background-color: #3490dc;
+  border-color: #3490dc;
+  width: 120%;
+}

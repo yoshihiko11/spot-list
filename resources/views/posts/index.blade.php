@@ -18,7 +18,7 @@
                             <h3 class="card-header">スポット検索</h3>
                             <form class="input-group card-body" method="GET" action="{{ route('posts.search') }}">
                                 <input class="form-control" type="search" placeholder="キーワードを入力" autocomplete="off" name="search" value="@if (isset($search)) {{ $search }} @endif">
-                                <button class="btn-primary" type="submit">検索</button>
+                                <button class="search-btn-primary" type="submit">検索</button>
                             </form>
                         </div>
                     </div>

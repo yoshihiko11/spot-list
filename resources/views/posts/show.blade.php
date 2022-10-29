@@ -30,7 +30,7 @@
                                 @if(isset( $post->price ))
                                     <h4><span class="Spot-details">料金</span></h4>
                                     <div class="box-show">
-                                        <p><span class="h5"> {{ $post->price }}円</span></p>
+                                        <p><span class="h5">{{ number_format($post->price) }}円</span></p>
                                     </div>
                                 @else
                                     
@@ -40,7 +40,7 @@
                                 @if(isset( $post->sales ))
                                     <h4><span class="Spot-details">営業時間</span></h4>
                                     <div class="box-show">
-                                        <p><span class="h5"> {!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
+                                        <p><span class="h5">{!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
                                     </div>
                                 @else
                                     
@@ -50,7 +50,7 @@
                                 @if(isset( $post->hpurl ))
                                     <h4><span class="Spot-details">観光スポットホームページ</span></h4>
                                     <div class="box-show">
-                                        <p><a class="h5" href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}"> {{ $post->name }}</a></p>
+                                        <p><a class="h5" href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}">{{ $post->name }}</a></p>
                                     </div>
                                 @else
                                     
@@ -60,12 +60,14 @@
                         <like-component :post_id="{{$post->id}}" :show_flg = "true"></Like-component>
                         <div class="d-flex">
                             <a class="btn btn-outline-dark flex-shrink-0" type="button" href="/">一覧に戻る</a>
-                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/posts/{{ $post->id }}/edit">スポット編集</a></div>
-                             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
-                                @csrf
-                                @method('DELETE')
-                                <div class="text-center"><button class="btn btn-outline-dark mt-auto" type="submit">スポット削除</button></div>
-                            </form>
+                            @if( $post->user_id = Auth::id())
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/posts/{{ $post->id }}/edit">スポット編集</a></div>
+                                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <div class="text-center"><button class="btn btn-outline-dark mt-auto" type="submit">スポット削除</button></div>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
