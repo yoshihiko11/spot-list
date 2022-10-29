@@ -5,7 +5,9 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ $post->image }}" alt="..." /></div>
+                    <div class="col-md-6 show-border ">
+                        <img class="mb-5 mb-md-0 show-img" src="{{ $post->image }}" alt="..." />
+                    </div>
                     <div class="col-md-6">
                         <h1 class="Spot-name">{{ $post->name }}</h1>
                         <p Class="Spot-body mb-5 h5">{!! nl2br(htmlspecialchars($post->body)) !!}</p>
@@ -14,16 +16,22 @@
                             <hr>
                             <div class="fs-5">
                                 <h4><span class="Spot-details">住所</span></h4>
-                                <p><span class="h5">{!! nl2br(htmlspecialchars($post->address)) !!}</span></p>
+                                <div class="box-show">
+                                    <p><span class="h5">{!! nl2br(htmlspecialchars($post->address)) !!}</span></p>
+                                </div>
                             </div>
                             <div class="fs-5">
                                 <h4><span class="Spot-details">アクセス</span></h4>
-                                <p><span class="h5">{!! nl2br(htmlspecialchars($post->access)) !!}</span></p>
+                                <div class="box-show">
+                                    <p><span class="h5">{!! nl2br(htmlspecialchars($post->access)) !!}</span></p>
+                                </div>
                             </div>
                             <div class="fs-5">
                                 @if(isset( $post->price ))
                                     <h4><span class="Spot-details">料金</span></h4>
-                                    <p><span class="h5">{{ $post->price }}円</span></p>
+                                    <div class="box-show">
+                                        <p><span class="h5"> {{ $post->price }}円</span></p>
+                                    </div>
                                 @else
                                     
                                 @endif
@@ -31,7 +39,9 @@
                             <div class="fs-5">
                                 @if(isset( $post->sales ))
                                     <h4><span class="Spot-details">営業時間</span></h4>
-                                    <p><span class="h5">{!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
+                                    <div class="box-show">
+                                        <p><span class="h5"> {!! nl2br(htmlspecialchars($post->sales)) !!}</span></p>
+                                    </div>
                                 @else
                                     
                                 @endif
@@ -39,7 +49,9 @@
                             <div class="fs-5">
                                 @if(isset( $post->hpurl ))
                                     <h4><span class="Spot-details">観光スポットホームページ</span></h4>
-                                    <p><a class="h5" href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}">{{ $post->name }}</a></p>
+                                    <div class="box-show">
+                                        <p><a class="h5" href="{!! nl2br(htmlspecialchars($post->hpurl)) !!}"> {{ $post->name }}</a></p>
+                                    </div>
                                 @else
                                     
                                 @endif

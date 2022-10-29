@@ -33,7 +33,7 @@
                                 <!-- スポット内容表示 -->
                                 <div class="card h-100">
                                     <!-- スポット画像 -->
-                                    <img class="card-img-top" src="{{ $post->image }}" alt="..." />
+                                    <img class="card-img-top border" src="{{ $post->image }}" alt="..." />
                                     <!-- スポット詳細 -->
                                     <div class="card-body p-4">
                                         <div class="text-center">
