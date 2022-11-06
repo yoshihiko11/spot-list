@@ -2,11 +2,11 @@
 
 @section('content')
     <main>
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">千葉県観光スポット</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">おすすめなスポット一覧</p>
+        <header class="bg-img py-5">
+            <div class="container my-5">
+                <div class="text-center text-red text-box">
+                    <h1 class="header-text text-shadow">千葉県観光スポット</h1>
+                    <p class="header-text-min text-shadow">おすすめなスポット一覧</p>
                 </div>
             </div>
         </header>

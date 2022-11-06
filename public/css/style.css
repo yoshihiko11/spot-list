@@ -53,3 +53,37 @@
   border-color: #3490dc;
   width: 120%;
 }
+
+.bg-img {
+  background-image: url(images/背景用.JPG);
+}
+
+.text-red {
+  color: #FFF !important;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-shadow {
+  text-shadow:
+    3px 3px 0px #000, -3px -3px 0px #000,
+    0px 3px 0px #000,  0px -3px 0px #000;
+}
+
+.header-text {
+  font-size: 5.0rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.header-text-min {
+  font-size: 2.0rem;
+  font-weight: 300;
+}
+
+.text-box {
+  width: 100%;
+  background-color: rgba(128,128,128,0.5);
+}
