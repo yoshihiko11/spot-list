@@ -56,6 +56,7 @@
 
 .bg-img {
   background-image: url(./images/header画像221112.JPG);
+  background-size:cover;
 }
 
 .text-red {
