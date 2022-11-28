@@ -19,7 +19,7 @@ class Post extends Model
         'image',
         ];
     
-    public function getPaginateByLimit(int $limit_count = 9)
+    public function getPaginateByLimit(int $limit_count = 6)
     {
         //updated_atで降順に並べたあと、limitで件数制限をかける
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
@@ -48,7 +48,7 @@ class Post extends Model
             ->from('posts')
             ->where('name',  'like', "%$word%")
             ->orWhere('body', 'like', "%$word%")
-            ->paginate(9);
+            ->paginate(6);
             
         return $posts;
     }
