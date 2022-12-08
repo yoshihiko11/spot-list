@@ -82,22 +82,22 @@
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     @foreach ($likedPosts as $likedPost)
                         <div class="col mb-5">
-                            <!-- コンテンツ内容をcardの中に内包する-->
+                            <!-- スポット内容表示 -->
                             <div class="card h-100">
-                                <!-- Product image-->
+                                <!-- スポット画像 -->
                                 <div class="border">
                                     <img class="card-img-top index-img" src="{{ $likedPost->image }}" alt="..." />
                                 </div>
-                                <!-- Product details-->
+                                <!-- スポット詳細 -->
                                 <div class="card-body p-4">
                                     <div class="text-center">
-                                        <!-- Product name-->
+                                        <!-- スポット名 -->
                                         <h5 class="fw-bolder">{{ $likedPost->name }}</h5>
-                                        <!-- Product price-->
+                                        <!-- スポットアクセス -->
                                         <p class='body'>{!! nl2br(htmlspecialchars($likedPost->access)) !!}</p>
                                     </div>
                                 </div>
-                                <!-- Product actions-->
+                                <!-- スポット詳細画面移動 -->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center">
                                         <a class="btn btn-outline-dark mt-auto" href="/posts/{{ $likedPost->id }}">スポット詳細</a>
