@@ -12,7 +12,7 @@
                     <div class="name card mb-4">
                         <h3 class="card-header">観光スポット名</h3>
                         <div class="card-body-2">
-                            <input type="text" name="post[name]" value="{{ $post->name }}">
+                            <input class="box-size" autocomplete="off" type="text" name="post[name]" value="{{ $post->name }}" placeholder="観光スポット名">
                             <div class="name_error" style="color:red">{{ $errors->first('post.name') }}</div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                     <div class="address card mb-4">
                         <h3 class="card-header">住所</h3>
                         <div class="card-body-2">
-                            <textarea name="post[address]" placeholder="住所">{{ $post->address }}</textarea>
+                            <textarea class="box-size" autocomplete="off" name="post[address]" placeholder="住所">{{ $post->address }}</textarea>
                             <div class="name_error" style="color:red">{{ $errors->first('post.address') }}</div>
                         </div>    
                     </div>
@@ -32,7 +32,7 @@
                     <div class="access card mb-4">
                         <h3 class="card-header">アクセス</h3>
                         <div class="card-body-2">
-                            <textarea name="post[access]" placeholder="アクセス">{{ $post->access }}</textarea>
+                            <textarea class="box-size" autocomplete="off" name="post[access]" placeholder="アクセス">{{ $post->access }}</textarea>
                             <div class="name_error" style="color:red">{{ $errors->first('post.access') }}</div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     <div class="body card mb-4">
                         <h3 class="card-header">観光スポット説明</h3>
                         <div class="card-body-2">
-                            <textarea name="post[body]" placeholder="観光スポット説明">{{ $post->body }}</textarea>
+                            <textarea class="box-size" autocomplete="off" name="post[body]" placeholder="観光スポット説明">{{ $post->body }}</textarea>
                             <div class="name_error" style="color:red">{{ $errors->first('post.body') }}</div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                     <div class="price card mb-4">
                         <h3 class="card-header">料金</h3>
                         <div class="card-body-2">
-                            <input type="text" name="post[price]" value="{{ $post->price }}">円
+                            <input type="text" class="box-size2" autocomplete="off" name="post[price]" value="{{ $post->price }}" placeholder="1500">円
                             <div class="name_error" style="color:red">{{ $errors->first('post.price') }}</div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="sales card mb-4">
                         <h3 class="card-header">営業時間</h3>
                         <div class="card-body-2">
-                            <textarea name="post[sales]" placeholder="営業時間">{{ $post->sales }}</textarea>
+                            <textarea class="box-size" autocomplete="off" name="post[sales]" placeholder="営業時間">{{ $post->sales }}</textarea>
                              <div class="name_error" style="color:red">{{ $errors->first('post.sales') }}</div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="hpurl card mb-4">
                         <h3 class="card-header">観光スポットホームページURL</h3>
                         <div class="card-body-2">
-                            <textarea name="post[hpurl]" placeholder="観光スポットホームページURL">{{ $post->hpurl }}</textarea>
+                            <textarea class="box-size" autocomplete="off" name="post[hpurl]" placeholder="観光スポットホームページURL">{{ $post->hpurl }}</textarea>
                             <div class="name_error" style="color:red">{{ $errors->first('post.hpurl') }}</div>
                         </div>
                     </div>
