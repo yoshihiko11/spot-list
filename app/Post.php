@@ -47,7 +47,8 @@ class Post extends Model
         $posts = DB::table('posts')
             ->from('posts')
             ->where('name',  'like', "%$word%")
-            ->orWhere('body', 'like', "%$word%")
+            ->orwhere('body', 'like', "%$word%")
+            ->orwhere('address', 'like', "%$word%")
             ->paginate(6);
             
         return $posts;

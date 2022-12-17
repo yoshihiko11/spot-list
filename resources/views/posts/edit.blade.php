@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-                <input class="btn btn-outline-dark mt-auto" type="submit" value="保存">
+                <div class="btn-subscrib"><input class="subscribe btn-primary" type="submit" value="保存"></div>
             </form>
         </div>    
         <div class="d-flex">
